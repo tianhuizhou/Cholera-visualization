@@ -252,6 +252,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   var pieMaleSet = []
   var pieAgeSet = []
   var pieFemaleSet = []
+  var pieColor = ['#4d4d4d', '#f15955','#dfcf40','#b277b2','#b1912e','#f27cb1','#60bd67','#faa53b','#5da4da']
 
   for(let a = 0; a < (ageSet.length - 1) ; a++){
     pieAgeSet.push(ageSet[a])
@@ -266,7 +267,10 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     textposition: 'inside',
     hoverinfo: 'label+percent+value',
     hole: .4,
-    type: 'pie'
+    type: 'pie',
+    marker: {
+      colors: pieColor,
+    }
   },{
     values: pieFemaleSet,
     labels: pieAgeSet,
@@ -276,7 +280,10 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     name: 'Female Emissions',
     hoverinfo: 'label+percent+value',
     hole: .4,
-    type: 'pie'
+    type: 'pie',
+    marker: {
+      colors: pieColor
+    }
   }];
 
   var layout5 = {
