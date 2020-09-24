@@ -44,24 +44,29 @@ d3.tsv("Cholera/naplesCholeraAgeSexData.tsv").then(function (data) {
 
   var data3 = [{
     type: 'table',
+    columnwidth: [100, 30, 30],
     header: {
       values: [["<b>Age</b>"], ["<b>Male</b>"],
         ["<b>Female</b>"]],
       align: "center",
       line: {width: 1, color: 'black'},
       fill: {color: headerColor},
-      font: {family: "Arial", size: 12, color: "white"}
+      font: {family: "Arial", size: 14, color: "white"}
     },
     cells: {
       values: values1,
-      align: "center",
+      align: ["center","right","right"],
       line: {color: "black", width: 1},
-      fill: {color: [colorSet]},
-      font: {family: "Arial", size: 11, color: ["black"]}
+      fill: {color: "white"},
+      font: {family: "Arial", size: 12, color: ["black"]}
     }
   }]
 
-  Plotly.newPlot('table2', data3);
+  var layoutT2 = {
+   title: 'Deaths per 10,000 inhabitants of each Age group'
+  }
+
+  Plotly.newPlot('table2', data3, layoutT2);
 
 
  // bar charts of age for male and female
@@ -84,8 +89,8 @@ d3.tsv("Cholera/naplesCholeraAgeSexData.tsv").then(function (data) {
   var data_gender = [trace1, trace2];
 
   var layout_bar = {
-    xaxis: {title: 'Age - X axis'},
-    yaxis: {title: 'Deaths - Y axis'},
+    xaxis: {title: 'Age Group'},
+    yaxis: {title: 'Deaths(per 10,000 inhabitants)'},
     barmode: 'group',
     title: "Cholera Deaths about Age & Sex"
   };
@@ -123,15 +128,16 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   for(let a = 0; a < ageSet.length;a++){
     let num1 = parseInt(maleSet[a])
     let num2 = parseInt(femaleSet[a])
+    let res = num1 + num2
 
-    totalMember.push((num1+num2))
+    totalMember.push(res.toString())
   }
 
   var headerColor = "grey";
   var rowEvenColor = "lightgrey";
   var rowOddColor = "white";
   var colorSet = []
-  var temp = 0
+
 
 
   ageSet.push("Overall ages")
@@ -141,26 +147,83 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   for(let a = 0; a< maleSet.length; a++){
     let num1 = parseInt(maleSet[a])
     let num2 = parseInt(femaleSet[a])
+    let num3 = parseInt(totalMember[a])
     tempNum1 += num1
     tempNum2 += num2
-    tempNum3 += totalMember[a]
+    tempNum3 += num3
   }
 
   maleSet.push(tempNum1.toString())
   femaleSet.push(tempNum2.toString())
-  totalMember.push(tempNum3)
+  totalMember.push(tempNum3.toString())
 
   for(let a = 0; a < ageSet.length; a++) {
 
-    if (temp == 0) {
-      colorSet.push(rowOddColor)
-      temp = 1
-    } else {
+    if (a == (ageSet.length - 1)) {
       colorSet.push(rowEvenColor)
-      temp = 0
+
+    } else {
+      colorSet.push(rowOddColor)
+
     }
   }
-  var values1 = [ageSet, maleSet, femaleSet, totalMember]
+  var maleSetRes = []
+  for(let a = 0; a < maleSet.length; a++){
+    let len = maleSet[a].length
+
+    let str = ''
+    let count = 0
+    for(let b = len-1; b >= 0; b--){
+      if(count == 3) {
+        str = ',' + str
+        count = 0
+
+      }
+      str = maleSet[a][b] + str
+      count++
+    }
+
+    maleSetRes.push(str)
+  }
+
+  var femaleSetRes = []
+  for(let a = 0; a < femaleSet.length; a++){
+    let len = femaleSet[a].length
+
+    let str = ''
+    let count = 0
+    for(let b = len-1; b >= 0; b--){
+      if(count == 3) {
+        str = ',' + str
+        count = 0
+
+      }
+      str = femaleSet[a][b] + str
+      count++
+    }
+
+    femaleSetRes.push(str)
+  }
+
+  var totalMemberRes = []
+  for(let a = 0; a < totalMember.length; a++){
+    let len = totalMember[a].length
+
+    let str = ''
+    let count = 0
+    for(let b = len-1; b >= 0; b--){
+      if(count == 3) {
+        str = ',' + str
+        count = 0
+
+      }
+      str = totalMember[a][b] + str
+      count++
+    }
+
+    totalMemberRes.push(str)
+  }
+  var values1 = [ageSet, maleSetRes, femaleSetRes, totalMemberRes]
 
 
   var data4 = [{
@@ -171,14 +234,14 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
       align: "center",
       line: {width: 1, color: 'black'},
       fill: {color: headerColor},
-      font: {family: "Arial", size: 12, color: "white"}
+      font: {family: "Arial", size: 14, color: "white"}
     },
     cells: {
       values: values1,
-      align: "center",
+      align: ["center", 'right'],
       line: {color: "black", width: 1},
       fill: {color: [colorSet]},
-      font: {family: "Arial", size: 11, color: ["black"]}
+      font: {family: "Arial", size: 12, color: ["black"]}
     }
   }]
 
@@ -240,7 +303,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     ],
     height: 450,
     width: 700,
-    showlegend: false,
+    showlegend: true,
     grid: {rows: 1, columns: 2}
   };
 
@@ -271,9 +334,10 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   var data_gender = [trace3, trace4];
 
   var layout_bar = {
-    xaxis: {title: 'Age - X axis'},
+    xaxis: {title: 'Age Group'},
+    yaxis: {title: 'Amount of people'},
     barmode: 'group',
-    title: "UK Gender Ratio in 1851"
+    title: "UK Population Age Distribution in 1851"
   };
 
   Plotly.newPlot('barChart2', data_gender, layout_bar);
@@ -287,9 +351,12 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
 
   var data7 = [{
     type: "pie",
-    title: "UK Gender Ratio in 1851",
+    title: "UK Population's Gender Ratio in 1851",
     values: [maleNum, femaleNum],
-    labels: ["Male", "Female"],
+    labels: ["male", "female"],
+    marker: {
+      colors: ['#1f77b4','#ff7f0e']
+    },
     textinfo: "label+percent",
     insidetextorientation: "radial"
   }]

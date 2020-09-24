@@ -56,38 +56,53 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
       temp = 0
     }
   }
+  let dateModif = []
+  for(let a = 0; a < dateSet.length; a++){
+    var temp1 = dateSet[a].substr(0, 2)
+    var temp2 = dateSet[a].substr(3, 3)
+    if(temp2 == 'Aug'){
+      temp2 = '08'
+    } else {
+      temp2 = '09'
+    }
+    var str = temp2 +'/'+ temp1
+    dateModif.push(str)
+  }
 
 
-  var values1 = [dateSet, attackSet, deathSet, totalAttack, totalDeath]
+  var values1 = [dateModif, attackSet, deathSet, totalAttack, totalDeath]
 
 
   var data1 = [{
     type: 'table',
-    columnwidth: [80,50,50,50,50],
+    columnwidth: [100,50,50,80,80],
 
     header: {
-      values: [["<b>Date</b>"], ["<b>Attack</b>"],
+      values: [["<b>Date (in 1854)</b>"], ["<b>Attack</b>"],
         ["<b>Death</b>"], ["<b>Total Attack</b>"], ["<b>Total Death</b>"]],
       align: "center",
       line: {width: 1, color: 'black'},
       fill: {color: headerColor},
-      font: {family: "Arial", size: 12, color: "white"}
+      font: {family: "Arial", size: 14, color: "white"}
     },
     cells: {
       values: values1,
-      align: "center",
+      align: ["center", 'right'],
       line: {color: "black", width: 1},
-      fill: {color: [colorSet]},
-      font: {family: "Arial", size: 11, color: ["black"]}
+      fill: {color: 'white'},
+      font: {family: "Arial", size: 12, color: ["black"]}
     }
   }]
 
-  Plotly.newPlot('test2', data1);
+  var layoutTab = {
+    title: 'Daily Records about Cholera Outbreak'
+  }
+  Plotly.newPlot('test2', data1, layoutTab);
 
 
 
   //Line Chart
-  var xData = [dateSet, dateSet, dateSet, dateSet];
+  var xData = [dateModif, dateModif, dateModif, dateModif];
 
   var yData = [totalAttack, totalDeath, attackSet, deathSet];
 
@@ -106,7 +121,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
       x: xData[i],
       y: yData[i],
       type: 'scatter',
-      mode: 'lines',
+      mode: 'lines+markers',
       name: labels[i],
       line: {
         color: colors[i],
@@ -124,7 +139,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
         size: 12
       }
     };
-    data.push(result, result2);
+    data.push(result);
   }
 
 
@@ -132,9 +147,11 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
     showlegend: false,
     height: 550,
     width: 800,
+    title: 'The Tendencies of Attack and Death by date in Cholera Outbreak',
     xaxis: {
+      title: 'The date from 08/19 to 09/29 in 1854',
       showline: true,
-      showgrid: false,
+      showgrid: true,
       showticklabels: true,
       linecolor: 'rgb(204,204,204)',
       linewidth: 2,
