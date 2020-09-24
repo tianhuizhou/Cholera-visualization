@@ -64,6 +64,8 @@ Promise.all([
 
   var legend = L.control({position: 'bottomright'});
 
+
+
   legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
@@ -72,7 +74,6 @@ Promise.all([
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
-      console.log("I am here")
 
 
       div.innerHTML +=

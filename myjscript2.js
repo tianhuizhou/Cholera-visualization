@@ -244,8 +244,11 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
       font: {family: "Arial", size: 12, color: ["black"]}
     }
   }]
+  var layoutT3 = {
+    title: 'UK Population by age & gender group'
+  }
 
-  Plotly.newPlot('table3', data4);
+  Plotly.newPlot('table3', data4, layoutT3);
 
 
   //a pie for age and men
