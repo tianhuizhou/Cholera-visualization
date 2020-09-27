@@ -184,13 +184,28 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
         xref: 'paper',
         yref: 'paper',
         x: 0.0,
-        y: 1.05,
+        y: 1.0,
         xanchor: 'left',
         yanchor: 'bottom',
-        text: '',
+        text: 'Number',
         font:{
           family: 'Arial',
-          size: 30,
+          size: 15,
+          color: 'rgb(37,37,37)'
+        },
+        showarrow: false
+      },
+      {
+        xref: 'paper',
+        yref: 'paper',
+        x: 0.95,
+        y: 0.0,
+        xanchor: 'left',
+        yanchor: 'top',
+        text: 'Date',
+        font:{
+          family: 'Arial',
+          size: 15,
           color: 'rgb(37,37,37)'
         },
         showarrow: false

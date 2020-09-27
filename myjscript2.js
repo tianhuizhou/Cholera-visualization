@@ -89,10 +89,39 @@ d3.tsv("Cholera/naplesCholeraAgeSexData.tsv").then(function (data) {
   var data_gender = [trace1, trace2];
 
   var layout_bar = {
-    xaxis: {title: 'Age Group'},
-    yaxis: {title: 'Deaths(per 10,000 inhabitants)'},
+    xaxis: {title: 'Age is a significant factor of Death in Cholera'},
     barmode: 'group',
-    title: "Cholera Deaths about Age & Sex"
+    title: "Cholera Deaths about Age & Sex",
+    annotations: [{
+      xref: 'paper',
+      yref: 'paper',
+      x: -0.12,
+      y: 1.0,
+      xanchor: 'left',
+      yanchor: 'bottom',
+      text: 'Deaths(per 10,000 inhabitants)',
+      font:{
+        family: 'Arial',
+        size: 15,
+        color: 'rgb(37,37,37)'
+      },
+      showarrow: false
+    },
+      {
+        xref: 'paper',
+        yref: 'paper',
+        x: 1.0,
+        y: 0.0,
+        xanchor: 'left',
+        yanchor: 'top',
+        text: 'Age Group',
+        font:{
+          family: 'Arial',
+          size: 15,
+          color: 'rgb(37,37,37)'
+        },
+        showarrow: false
+      }]
   };
 
   Plotly.newPlot('barChart', data_gender, layout_bar);

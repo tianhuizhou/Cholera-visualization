@@ -19,11 +19,19 @@
   <style>
     #mapid {height: 450px; width: 800px;}
   </style>
-  <title>title</title>
+  <title>Cholera</title>
 </head>
 <body>
 
-<h1 style="text-align: center">1854 London Cholera Outbreak</h1>
+<div class="ui fixed top inverted four item menu" id="menubar">
+  <a class="item" href="#p1">London</a>
+  <a class="item" href="#p2">Naples</a>
+  <a class="item" href="#p3">UK census 1851</a>
+  <a class="item" href="#p4">Map: Cholera in London</a>
+</div>
+
+<a name="p1"></a>
+<h1 style="text-align: center; padding-top: 30px">1854 London Cholera Outbreak</h1>
 
 <div class="ui centered aligned padded grid">
   <div class="six wide column">
@@ -37,8 +45,12 @@
   </div>
 </div>
 
+<div style="padding-top: 60px; padding-bottom: 60px">
+  <hr class="solid">
+</div>
+
+<a name="p2"></a>
 <h1 style="text-align: center">Deaths of Cholera Age&Sex Data in Naples</h1>
-<h3 style="text-align: center"> Deaths per 10,000 inhabitants of that age group</h3>
 <h4 style="text-align: center">Deaths distribution about Ages in Male & Female</h4>
 <div class="ui grid">
   <div class="eight wide column">
@@ -48,7 +60,10 @@
   <div id="barChart"></div>
   </div>
 </div>
-
+<div style="padding-top: 60px; padding-bottom: 60px">
+<hr class="solid">
+</div>
+<a name="p3"></a>
 <h1 style="text-align: center">UK census 1851</h1>
 
 <div>
@@ -61,7 +76,6 @@
     </div>
   </div>
 </div>
-
 
 <div>
   <div class="ui grid" style="margin-top: -110px">
@@ -76,6 +90,12 @@
 
 </div>
 
+
+<div style="padding-top: 60px; padding-bottom: 60px">
+  <hr class="solid">
+</div>
+
+<a name="p4"></a>
 <h1 style="text-align: center">Map: Cholera Death and Pump Location in Current London</h1>
 <div id="mapid" style="margin-left: 310px; margin-bottom: 40px"></div>
 <script src="myjscript3.js"></script>

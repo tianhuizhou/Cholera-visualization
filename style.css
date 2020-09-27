@@ -9,3 +9,7 @@
   margin-right: 8px;
   opacity: 0.7;
 }
+hr.solid {
+  border-top: 3px solid #bbb;
+
+}
