@@ -76,14 +76,20 @@ d3.tsv("Cholera/naplesCholeraAgeSexData.tsv").then(function (data) {
     x: ageSet,
     y: maleSet,
     name: 'Male',
-    type: 'bar'
+    type: 'bar',
+    marker:{
+      color: '#1f77b4'
+    }
   };
 
   var trace2 = {
     x: ageSet,
     y: femaleSet,
     name: 'Female',
-    type: 'bar'
+    type: 'bar',
+    marker:{
+    color: '#ff0c0f'
+    }
   };
 
   var data_gender = [trace1, trace2];
@@ -294,6 +300,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   var data5 = [{
     values: pieMaleSet,
     labels: pieAgeSet,
+    text: 'Male',
     domain: {column: 0},
     name: 'Male Emissions',
     textposition: 'inside',
@@ -367,7 +374,10 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     x: ageSet,
     y: pieFemaleSet,
     name: 'Female',
-    type: 'bar'
+    type: 'bar',
+    marker:{
+      color: '#ff0c0f'
+    }
   };
 
   var data_gender = [trace3, trace4];
@@ -394,7 +404,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     values: [maleNum, femaleNum],
     labels: ["male", "female"],
     marker: {
-      colors: ['#1f77b4','#ff7f0e']
+      colors: ['#1f77b4','#ff0c0f']
     },
     textinfo: "label+percent",
     insidetextorientation: "radial"
