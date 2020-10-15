@@ -44,7 +44,7 @@ d3.tsv("Cholera/naplesCholeraAgeSexData.tsv").then(function (data) {
 
   var data3 = [{
     type: 'table',
-    columnwidth: [100, 30, 30],
+    columnwidth: [40, 30, 30],
     header: {
       values: [["<b>Age</b>"], ["<b>Male</b>"],
         ["<b>Female</b>"]],
@@ -303,7 +303,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     text: 'Male',
     domain: {column: 0},
     name: 'Male Emissions',
-    textposition: 'inside',
+    //textposition: 'inside',
     hoverinfo: 'label+percent+value',
     hole: .4,
     type: 'pie',
@@ -314,8 +314,8 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     values: pieFemaleSet,
     labels: pieAgeSet,
     text: 'Female',
-    textposition: 'inside',
-    domain: {column: 1},
+    //textposition: 'inside',
+    domain: {column: 2},
     name: 'Female Emissions',
     hoverinfo: 'label+percent+value',
     hole: .4,
@@ -334,7 +334,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
         },
         showarrow: false,
         text: 'Male',
-        x: 0.19,
+        x: 0.12,
         y: 0.5
       },
       {
@@ -343,18 +343,42 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
         },
         showarrow: false,
         text: 'Female',
-        x: 0.835,
+        x: 0.905,
         y: 0.5
       }
     ],
     height: 450,
-    width: 700,
+    width: 850,
     showlegend: false,
     legend:{},
-    grid: {rows: 1, columns: 2}
+    grid: {rows: 1, columns: 3}
   };
 
   Plotly.newPlot('Male&FemaleDis', data5, layout5);
+
+// var dataMale = [{
+  //   values:pieMaleSet,
+  //   labels:pieAgeSet,
+  //   type:'pie',
+  //   marker: {
+  //         colors: pieColor,
+  //       },
+  // }];
+  // var layoutPie = {
+  //   height: 400,
+  //   width: 500
+  // };
+  // Plotly.newPlot('malePie', dataMale, layoutPie);
+  //
+  // var dataFeMale = [{
+  //   values:pieFemaleSet,
+  //   labels:pieAgeSet,
+  //   type:'pie',
+  //   marker: {
+  //     colors: pieColor2,
+  //   },
+  // }];
+  // Plotly.newPlot('femalePie', dataFeMale, layoutPie);
 
 
 
