@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
+  <script src="plotly-latest.min.js"></script>
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/underscore@1.11.0/underscore-min.js"></script>
@@ -16,9 +16,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-  <style>
-    #mapid {height: 450px; width: 800px;}
-  </style>
+
   <title>Cholera</title>
 </head>
 <body>
@@ -31,6 +29,7 @@
 </div>
 
 <a name="p1"></a>
+<hr class="solid">
 <h1 style="text-align: center; padding-top: 30px">1854 London Cholera Outbreak</h1>
 
 <div class="ui centered aligned padded grid">
@@ -45,11 +44,12 @@
   </div>
 </div>
 
+<a name="p2"></a>
 <div style="padding-top: 60px; padding-bottom: 60px">
   <hr class="solid">
 </div>
 
-<a name="p2"></a>
+
 <h1 style="text-align: center">Deaths of Cholera Age & Sex Data in Naples</h1>
 <h4 style="text-align: center">Deaths distribution about Ages in Male & Female</h4>
 <div class="ui grid">
@@ -60,10 +60,12 @@
   <div id="barChart"></div>
   </div>
 </div>
+
+<a name="p3"></a>
 <div style="padding-top: 60px; padding-bottom: 60px">
 <hr class="solid">
 </div>
-<a name="p3"></a>
+
 <h1 style="text-align: center">UK census 1851</h1>
 
 <div>
@@ -92,14 +94,16 @@
 
 </div>
 
-
+<a name="p4"></a>
 <div style="padding-top: 60px; padding-bottom: 60px">
   <hr class="solid">
 </div>
 
-<a name="p4"></a>
+
 <h1 style="text-align: center">Map: Cholera Death and Pump Location in Current London</h1>
-<div id="mapid" style="margin-left: 310px; margin-bottom: 40px"></div>
+<div class="ui container">
+<div id=mymap style="margin-bottom: 40px"></div>
+</div>
 <script src="myjscript3.js"></script>
 
 
