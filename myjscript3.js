@@ -1,18 +1,18 @@
 Plotly.d3.csv('Cholera/choleraPumpLocations.csv', function (err, data_pump) {
   Plotly.d3.csv('Cholera/choleraDeathLocations.csv', function (err, data_death) {
-    let pump_latitude = _.map(_.pluck(data_pump, 'lati'), function (x) {
+    let pump_lati = _.map(_.pluck(data_pump, 'lati'), function (x) {
 
       return x
     });
-    let pump_longitude = _.map(_.pluck(data_pump, 'long'), function (x) {
+    let pump_long = _.map(_.pluck(data_pump, 'long'), function (x) {
 
       return x
     });
-    let death_latitude = _.map(_.pluck(data_death, 'lati'), function (x) {
+    let death_lati = _.map(_.pluck(data_death, 'lati'), function (x) {
 
       return x
     });
-    let death_longitude = _.map(_.pluck(data_death, 'long'), function (x) {
+    let death_long = _.map(_.pluck(data_death, 'long'), function (x) {
 
       return x
     });
@@ -25,8 +25,8 @@ Plotly.d3.csv('Cholera/choleraPumpLocations.csv', function (err, data_pump) {
       {
         type: "scattermapbox",
         name: "Pump",
-        lat: pump_latitude,
-        lon: pump_longitude,
+        lat: pump_lati,
+        lon: pump_long,
         marker: {
           color: "#0099EE",
           size: 16,
@@ -36,8 +36,8 @@ Plotly.d3.csv('Cholera/choleraPumpLocations.csv', function (err, data_pump) {
         type: "scattermapbox",
         name: "Death",
         text: _.map(death_num, (num) => ('Death: '+ num)),
-        lat: death_latitude,
-        lon: death_longitude,
+        lat: death_lati,
+        lon: death_long,
         marker: {
           color: "#EE0000",
           opacity: 0.9,

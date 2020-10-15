@@ -326,7 +326,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   }];
 
   var layout5 = {
-    title: ' Age Distributions in UK 1851',
+    title: ' Age Distributions of Male and Female in UK 1851',
     annotations: [
       {
         font: {

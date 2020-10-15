@@ -106,8 +106,8 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
 
   var yData = [totalAttack, totalDeath, attackSet, deathSet];
 
-  var colors = ['#990000', 'black', '#FF0000',
-    'gray'
+  var colors = ['#FF0000', 'black', 'orange',
+    '#8b8b8b'
   ];
 
   var lineSize = [2, 2, 2, 2];
@@ -154,7 +154,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
     width: 800,
     title: 'The Tendencies of Attack and Death by date in Cholera Outbreak',
     xaxis: {
-      title: 'The date from 08/19 to 09/29 in 1854',
+      title: 'The line chart reflect the trend of Cholera by recording Attack, Death, and total numbers ',
       showline: true,
       showgrid: true,
       showticklabels: true,
