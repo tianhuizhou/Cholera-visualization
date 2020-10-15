@@ -110,7 +110,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
     'gray'
   ];
 
-  var lineSize = [2, 2, 4, 2];
+  var lineSize = [2, 2, 2, 2];
 
   var labels = ['Total Attack', 'Total Death', 'Attack', 'Death'];
 
@@ -144,7 +144,12 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
 
 
   var layout = {
-    showlegend: false,
+    showlegend: true,
+    legend: {
+      x: 0.2,
+      xanchor: 'right',
+      y: 1
+    },
     height: 550,
     width: 800,
     title: 'The Tendencies of Attack and Death by date in Cholera Outbreak',
@@ -167,10 +172,11 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
       }
     },
     yaxis: {
-      showgrid: false,
+      showgrid: true,
       zeroline: false,
-      showline: false,
-      showticklabels: false
+      showline: true,
+      showticklabels: true
+
     },
     autosize: false,
     margin: {
@@ -183,7 +189,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
       {
         xref: 'paper',
         yref: 'paper',
-        x: 0.0,
+        x: -0.05,
         y: 1.0,
         xanchor: 'left',
         yanchor: 'bottom',
@@ -228,7 +234,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
     ]
   };
 
-  for( var i = 0 ; i < xData.length ; i++ ) {
+  for( var i = 0 ; i < xData.length-1 ; i++ ) {
     //var num = 2*i
     var result = {
       xref: 'paper',
@@ -259,7 +265,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
       showarrow: false
     };
 
-    layout.annotations.push(result, result2);
+    layout.annotations.push(result2);
   }
 
   Plotly.newPlot('myDiv', data, layout);
