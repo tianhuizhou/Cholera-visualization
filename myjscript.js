@@ -106,7 +106,7 @@ d3.tsv("Cholera/choleraDeaths.tsv").then(function (data) {
 
   var yData = [totalAttack, totalDeath, attackSet, deathSet];
 
-  var colors = ['red', 'black', '#8f0414',
+  var colors = ['#990000', 'black', '#FF0000',
     'gray'
   ];
 

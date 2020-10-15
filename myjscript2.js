@@ -290,8 +290,8 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
   var pieMaleSet = []
   var pieAgeSet = []
   var pieFemaleSet = []
-  var pieColor = ['#4d4d4d', '#f15955','#dfcf40','#b277b2','#b1912e','#f27cb1','#60bd67','#faa53b','#5da4da']
-
+  var pieColor = ['#0f3b5a','#1a6396','#1f77b4','#3282ba','#6aa4cd','#7cb0d3','#a2c6e0','#c7ddec','#5da4da']
+  var pieColor2 = ['#800608','#bf090b','#ff0c0f','#ff2023','#ff494b','#ff7173','#ff8587','#ffa2a3','#ffc7c8']
   for(let a = 0; a < (ageSet.length - 1) ; a++){
     pieAgeSet.push(ageSet[a])
     pieMaleSet.push(maleSet[a])
@@ -309,7 +309,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     type: 'pie',
     marker: {
       colors: pieColor,
-    }
+    },
   },{
     values: pieFemaleSet,
     labels: pieAgeSet,
@@ -321,7 +321,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
     hole: .4,
     type: 'pie',
     marker: {
-      colors: pieColor
+      colors: pieColor2
     }
   }];
 
@@ -334,7 +334,7 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
         },
         showarrow: false,
         text: 'Male',
-        x: 0.17,
+        x: 0.19,
         y: 0.5
       },
       {
@@ -343,13 +343,14 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
         },
         showarrow: false,
         text: 'Female',
-        x: 0.85,
+        x: 0.835,
         y: 0.5
       }
     ],
     height: 450,
     width: 700,
-    showlegend: true,
+    showlegend: false,
+    legend:{},
     grid: {rows: 1, columns: 2}
   };
 
@@ -400,7 +401,12 @@ d3.csv("Cholera/UKcensus1851.csv").then(function (data) {
 
   var data7 = [{
     type: "pie",
-    title: "UK Population's Gender Ratio in 1851",
+    title: {
+      text: 'Male  vs  Female',
+      font: {
+        size: 17
+      },
+    },
     values: [maleNum, femaleNum],
     labels: ["male", "female"],
     marker: {
